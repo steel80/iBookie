@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7CDB681F-16F2-4C26-A11C-75BE0F135407}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0CA1715F-2550-47BE-95C2-F69CDDB8BBFF}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "iBookie", "src\iBookie\iBookie.xproj", "{970D2F74-BDD3-4B4A-9744-04075C7B2095}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{970D2F74-BDD3-4B4A-9744-04075C7B2095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{970D2F74-BDD3-4B4A-9744-04075C7B2095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{970D2F74-BDD3-4B4A-9744-04075C7B2095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{970D2F74-BDD3-4B4A-9744-04075C7B2095}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{970D2F74-BDD3-4B4A-9744-04075C7B2095} = {7CDB681F-16F2-4C26-A11C-75BE0F135407}
+	EndGlobalSection
+EndGlobal
