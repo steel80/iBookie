@@ -35,7 +35,7 @@ namespace iBookie.Controllers
 
         public IActionResult MyBet()
         {
-            return View();
+            return View(_championsLeagueService.InitFixturesFor(7));
         }
 
         public IActionResult Contact()

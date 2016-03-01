@@ -1,7 +1,32 @@
-﻿<div class="container-fluid body-content">
+﻿ @model IEnumerable<iBookie.ViewModels.Bet.FixtureModel>
+<div class="container-fluid body-content">
     <div class="row">
         <div class="col-md-4">
-
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="active">
+                            <th>Date</th>
+                            <th>Home</th>
+                            <th>Result</th>
+                            <th>Away</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var fixture in Model)
+                        {
+                            <tr>
+                                <td>@fixture?.Date.ToString("d")</td>
+                                <td>@fixture.HomeTeam</td>
+                                <td>@fixture.GoalsHomeTeam - @fixture.GoalsAwayTeam</td>
+                                <td>@fixture.AwayTeam</td>
+                                <td>@fixture.Status</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
