@@ -1,7 +1,74 @@
-﻿@{
-    ViewData["Title"] = "About";
-}
-<h2>@ViewData["Title"].</h2>
-<h3>@ViewData["Message"]</h3>
+﻿@model iBookie.ViewModels.Bet.ChampionsLeague
+<div class="container-fluid body-content">
+    <div class="row">
+        <h2>@Model.Name</h2>
+        <span><strong>Teams:</strong> @Model.NumberOfTeams</span>
+        <span><strong>Games:</strong>@Model.NumberOfGames</span>
+    </div>
 
-<p>Use this area to provide additional information.</p>
+    <div class="row">
+        @foreach (var group in Model.Groups)
+        {
+            <div class="col-md-3">
+                <div class="table-responsive">
+                    <table class="table table-hover table-condensed">
+                        <thead>
+                        <tr class="active">
+                            <th>#</th>
+                            <th>@group.Name</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var team in group.Teams)
+                        {
+                            <tr>
+                                <th><img src="@team.CreastUrl" alt="@team.Name" width="18"/></th>
+                                <th><a asp-controller="Home" asp-action="Team" asp-route-id="@team.TeamId">@team.Name</a></th>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+@*@foreach (var group in Model.Groups)
+    {
+    <div class="col-md-4">
+    <h3>@group.Name</h3>
+    <div class="table-responsive">
+    <table class="table table-hover">
+    <thead>
+    <tr>
+    <th>#</th>
+    <th>Team</th>
+    <th>GP</th>
+    <th>W</th>
+    <th>D</th>
+    <th>L</th>
+    <th>GF</th>
+    <th>GA</th>
+    <th>GD</th>
+    <th>Pts</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var standing in group.Standings)
+    {
+    <tr>
+    <th scope="row">@standing.position</th>
+    <td>@standing.team.name</td>
+    @foreach (var stat in standing.stats)
+    {
+    <td>@stat.value</td>
+    }
+    </tr>
+    }
+    </tbody>
+    </table>
+    </div>
+    </div>
+    }*@

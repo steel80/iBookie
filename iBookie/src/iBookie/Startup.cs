@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using iBookie.Features.DataAccess;
+using iBookie.Features.Repository;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -11,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using iBookie.Models;
 using iBookie.Services;
+using iBookie.ViewModels.Bet;
 
 namespace iBookie
 {
@@ -49,10 +48,21 @@ namespace iBookie
                 .AddDefaultTokenProviders();
 
             services.AddMvc();
+            services.AddCaching();
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+            services.AddTransient<IGroupService, GroupService>();
+            services.AddTransient<IChampionsLeagueService, ChampionsLeagueService>();
+            services.AddTransient<ITeamService, TeamService>();
+            services.AddTransient<IFixtureService, FixtureService>();
+
+            services.AddTransient<IRepository<FdPlayers>, FdRemoteRepository<FdPlayers>>();
+            services.AddTransient<IRepository<FdTeam>, FdRemoteRepository<FdTeam>>();
+            services.AddTransient<IRepository<CompetitionRoot>, FdRemoteRepository<CompetitionRoot>>();
+            services.AddTransient<IRepository<FixturesRoot>, FdRemoteRepository<FixturesRoot>>();
+            services.AddTransient<ChampionsLeague, ChampionsLeague>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

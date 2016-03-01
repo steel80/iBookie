@@ -1,0 +1,43 @@
+﻿@model iBookie.ViewModels.Bet.TeamModel
+<div class="container-fluid body-content">
+    <div class="row">
+        <div class="col-md-1">
+            <img src="@Model.CreastUrl" alt="@Model.Name" width="100"/>
+        </div>
+        <div class="col-lg-11">
+            <h2>@Model.Name</h2>
+            <span><strong>Market value:</strong> @Model.MarketValue</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="active">
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Number</th>
+                            <th>Date of birth</th>
+                            <th>Nat</th>
+                            <th>Market value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var player in Model.Players)
+                        {
+                            <tr>
+                                <th>@player.name</th>
+                                <th>@player.position</th>
+                                <th>@player?.jerseyNumber</th>
+                                <th>@player.dateOfBirth</th>
+                                <th>@player.nationality</th>
+                                <th>@player.marketValue</th>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>            
+        </div>
+    </div>
+</div>
